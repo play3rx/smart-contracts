@@ -65,3 +65,11 @@ If you want to make a request to an already deployed Airnode, make sure to set y
 ```shell
 yarn request-rrp
 ```
+
+### API3 dAPIs - Price feeds
+
+To read the price of an asset from the API3 dAPIs, make sure to set your parameters in `scripts/request_dapi` and run:
+
+```shell
+yarn read-dapi
+```
