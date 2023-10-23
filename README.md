@@ -68,7 +68,7 @@ yarn request-rrp
 
 ### API3 dAPIs - Price feeds
 
-To read the price of an asset from the API3 dAPIs, make sure to set your parameters in `scripts/request_dapi` and run:
+To read the price of an asset from the API3 dAPIs, make sure to set your proxy address during deployment and run:
 
 ```shell
 yarn read-dapi
