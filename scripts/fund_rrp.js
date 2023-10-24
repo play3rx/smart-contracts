@@ -1,6 +1,5 @@
 const hre = require('hardhat');
 const airnodeAdmin = require('@api3/airnode-admin');
-const { getApi } = require('../scripts/apis.js');
 
 async function main() {
 
@@ -22,7 +21,7 @@ const amounts = {
   mantle: { value: 10.00, unit: 'MNT' },
   linea: { value: 0.01, unit: 'ETH' },
   'polygon-zkevm': { value: 0.01, unit: 'ETH' },
-  goerli: { value: 0.1, unit: 'ETH' },
+  goerli: { value: 0.3, unit: 'ETH' },
   sepolia: { value: 0.05, unit: 'SEP' },
   'rsk-testnet': { value: 0.001, unit: 'RBTC' },
   'gnosis-testnet': { value: 0.05, unit: 'xDAI' },
@@ -36,7 +35,8 @@ const amounts = {
   'arbitrum-testnet': { value: 0.01, unit: 'ETH' },
 };
 
-  const apiData = getApi(hre.network);
+  const airnodeAddress = "0xB0B2C57c67aB89c3c65480C4aDE37b66d418c68e";
+  const airnodeXpub = "xpub6C9hFCLsUsU1dPMDaf5cDKiFwxUsET6zmAHxqLWaUBW2jJejjW2GpAxMY4HAeHkBGxeu9hdSyDoLJM7R23jGTfYekWjMcLvtvzrKszarDGY";
   const account = (await hre.ethers.getSigners())[0];
   const RrpRequester = await hre.deployments.get('RrpRequester');
   const RrpRequesterContract = new hre.ethers.Contract(RrpRequester.address, RrpRequester.abi, account);
@@ -47,8 +47,8 @@ const amounts = {
   // Visit our docs to learn more about sponsors and sponsor wallets
   // https://docs.api3.org/airnode/latest/concepts/sponsor.html
   const sponsorWalletAddress = await airnodeAdmin.deriveSponsorWalletAddress(
-    apiData.xpub,
-    apiData.airnode,
+    airnodeXpub,
+    airnodeAddress,
     RrpRequesterContract.address
   );
 
