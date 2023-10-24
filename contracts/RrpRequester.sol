@@ -11,6 +11,7 @@ contract RrpRequester is RrpRequesterV0, Ownable {
 
     // This RRP contract will only accept uint256 requests from the Airnode.
     event RequestFulfilled(bytes32 indexed requestId, int256 response);
+    event RequestedUint256(bytes32 indexed requestId);
 
     // Make sure you specify the right _rrpAddress for your chain while deploying the contract.
     constructor(address _rrpAddress) RrpRequesterV0(_rrpAddress) {}
@@ -39,6 +40,7 @@ contract RrpRequester is RrpRequesterV0, Ownable {
             parameters                      // encoded API parameters
         );
         incomingFulfillments[requestId] = true;
+        emit RequestedUint256(requestId);
     }
     
     function fulfill(bytes32 requestId, bytes calldata data)
