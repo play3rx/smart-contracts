@@ -18,13 +18,13 @@ async function main() {
     sponsor
   );
   console.log(`Sponsor wallet address: ${sponsorWallet}`);
-  // Encode your API Params. Check out the docs for more info https://docs.api3.org/reference/airnode/latest/specifications/airnode-abi.html
+// Encode your API Params. Check out the docs for more info https://docs.api3.org/reference/airnode/latest/specifications/airnode-abi.html
 //   const params = [
-//     { type: 'string', name: '', value: '' }, { type: 'string', name: '', value: '' }, { type: 'string', name: '_path', value: '' }, { type: 'string', name: '_type', value: 'int256' }
+//     { type: 'string', name: 'param1', value: 'value1' }, { type: 'string', name: 'param2', value: 'value2' }, { type: 'string', name: '_path', value: '' }, { type: 'string', name: '_type', value: 'int256' }
 //     ];
 const params = [
-        {type: 'string', name: 'seasonID', value: '6'}, { type: 'string', name: '_path', value: 'data.0.id' }, { type: 'string', name: '_type', value: 'int256' }
-        ];
+      {type: 'string', name: 'seasonID', value: '6'}, { type: 'string', name: '_path', value: 'data.0.id' }, { type: 'string', name: '_type', value: 'int256' }
+      ];
   const encodedParameters = encode(params);
   console.log(`Encoded parameters: ${encodedParameters}`);
   console.log(`Decoded parameters: ${decode(encodedParameters)}`)
