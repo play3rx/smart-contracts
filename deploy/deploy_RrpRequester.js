@@ -19,3 +19,5 @@ module.exports = async () => {
         hre.ethers.provider.getSigner()
     );
 };
+
+module.exports.tags = ['RrpRequester'];

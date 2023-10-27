@@ -43,3 +43,5 @@ module.exports = async () => {
       );
       console.log('QRNG Request parameters set');
     };
+
+module.exports.tags = ['QrngRequester'];

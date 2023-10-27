@@ -24,3 +24,6 @@ module.exports = async () => {
     console.log(`dAPI Proxy Address set to ${DapiProxyAddress}`);
 
     };
+
+
+module.exports.tags = ['DapiReader'];
