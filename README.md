@@ -98,7 +98,7 @@ this will make the request, within 100 seconds the sports monk airnode should re
 
 #### 5. Using different endpoints
 
-you can use other endpoints apart from  Track Winners by Season ID. Here is a list of endpoints and endpointIds
+you can use other endpoints apart from [Track Winners by Season ID](https://docs.sportmonks.com/formula-one/our-api/winners/get-track-winners-by-season-id). Here is a list of endpoints and endpointIds
 
 | endpointId                                                          | endpointName                      |
 |--------------------------------------------------------------------|----------------------------------|
