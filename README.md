@@ -36,18 +36,6 @@ yarn
 $ cp credentials.example.json credentials.json
 ```
 
-## Deploying the Contracts
-
-Make sure to head over to all the scripts under `/deploy` and check the contract and airnode addresses. To compile and deploy the contracts:
-
-```bash
-$ yarn compile
-```
-
-```bash
-$ yarn deploy
-```
-
 ## Making a request to the SportMonks F1 Airnode
 
 For the Hackathon, we've integrated and deployed an Airnode for [SportMonks F1 API](https://docs.sportmonks.com/formula-one/) on Goerli Testnet. The following steps are used to deploy a requester that calls the [GET Track Winners by Season ID](https://docs.sportmonks.com/formula-one/our-api/winners/get-track-winners-by-season-id) endpoint.
@@ -66,7 +54,7 @@ this will deploy the RrpRequester contract. You can use this contract as a templ
 
 Once you run the command note down the RrpRequester address
 
-#### 4. Deriving the sponsorWallet and funding it
+#### 3. Deriving the sponsorWallet and funding it
 
 The `sponsorWallet` covers the gas costs for the fulfillment of the request, so we need to derive and fund it. Run the following command to derive the sponsorWallet making sure that you replaced `<YOUR-REQUESTER_CONTRACT-ADDRESS>` with the RrpRequester address you deployed in step 3
 
@@ -78,7 +66,7 @@ npx @api3/airnode-admin derive-sponsor-wallet-address \
 ```
 - You now need to fund the outputted `sponsorWallet` with some Goerli ETH (around 0.2) for the Airnode to be able to fulfill the request.
 
-#### 5. Making the Request
+#### 4. Making the Request
 
 - To make a request to an Airnode, you'll have to update `script/request_rrp.js` with your `airnodeAddress`, `endpointId` and `encodedParameters`.
 
@@ -108,7 +96,7 @@ yarn request-rrp
 ```
 this will make the request, within 100 seconds the sports monk airnode should reply with the response.
 
-#### 6. Using different endpoints
+#### 5. Using different endpoints
 
 you can use other endpoints apart from  Track Winners by Season ID. Here is a list of endpoints and endpointIds
 
@@ -135,6 +123,13 @@ when choosing a different endpointId make sure to modify the [`/scripts/request_
 
 ## QRNG - Quantum Random Number Generator
 
+Please follow the setup instructions [here](#installation-and-setup) before going forward
+
+To request random numbers you first need to deploy a qrng requester contract. run the following command to deploy a qrng requester:
+```
+yarn deploy-qrng-requester
+```
+
 To use the QRNG services, you'll first have to fund the `sponsorWallet` that will cover the gas cost of the fulfillment of the request. To read more about how QRNG works, [click here](https://docs.api3.org/guides/qrng/). To fund your `sponsorWallet`, run:
 
 ```shell
@@ -154,6 +149,13 @@ yarn request-qrng:array
 ```
 
 ## API3 dAPIs - Price feeds
+
+Please follow the setup instructions [here](#installation-and-setup) before going forward
+
+Run the following command to deploy a dAPI price reader:
+```shell
+yarn deploy-dapi-reader
+```
 
 Check out [this guide](https://docs.api3.org/guides/dapis/subscribing-self-funded-dapis/) to learn how to subscribe to self-funded dAPIs.
  To read the price of an asset from the API3 dAPIs, make sure to set your proxy address during deployment and run:
